@@ -44,6 +44,17 @@ public class UserController {
 	public List<User> getUsers(){
 		return this.userService.findAll();
 	}
+	
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
+	public void deleteUser(@RequestBody String userJson) throws JsonParseException, JsonMappingException, IOException, Exception{
+		this.mapper = new ObjectMapper();
+		User user = this.mapper.readValue(userJson, User.class);
+		
+		if(user.getId() == null){
+			throw new Exception("El id no esta especificado");
+		}
+		userService.deleteUser(user.getId());
+	}
 
 	private boolean validate(User user) {
 		boolean isValid = true;
