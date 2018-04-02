@@ -1,4 +1,4 @@
-package es.warjav.modelo;
+package es.warjav.model;
 
 import java.io.Serializable;
 
