@@ -1,6 +1,7 @@
 package es.warjav.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import es.warjav.model.User;
 
@@ -23,5 +24,7 @@ public interface UserService {
 	 * @param id identificador del usuario
 	 */
 	void deleteUser(Long id);
+
+	Optional<User> getUser(Long id);
 
 }

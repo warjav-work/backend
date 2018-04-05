@@ -1,6 +1,7 @@
 package es.warjav.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,12 @@ public class UserServiceImp implements UserService {
 	public void deleteUser(Long id) {
 		userRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public Optional<User> getUser(Long id) {
+		
+		return userRepository.findById(id);
 	}
 
 }
